@@ -27,7 +27,40 @@ module.exports = {
       if (minVal === null || arr[i] < minVal) { minVal = arr[i]; }
     }
     return minVal;
+  },
+  intersection: function (firstArray) {
+    if (arguments.length < 2) { 
+      return [];
+    }
+
+    var result = [];
+    var secondArg = 1; // The first argument array is used to compare with other arrays.
+
+    // Loop over the first array passed in.
+    for (var i = 0; i < firstArray.length; i++) {
+      // Loop over the arrays other than the first comparing first array[i] value
+      // Put the value being check into a variable
+      var checkValue = firstArray[i];
+      var intersects = false;
+
+      for (var j = secondArg; j < arguments.length; j++) {
+        var passedArray = arguments[j];
+        // arguments[j] is the index of the array currently being worked on
+        // arguments[0][i] is the index of the first array being compared.
+        var foundAt = passedArray.indexOf(checkValue);
+        if (foundAt === -1) {
+          intersects = false;
+          // If the array being checked does not contain the value, the the value can not be 
+          // part of an intersection. Therefore the loop breaks out to check the next value.
+          break;
+        } else {
+          intersects = true;
+        }
+      }
+      // if the value passes all arrays without resetting intersects to false it is added to the results array.
+      if (intersects) {result.push(checkValue);}
+    }
+    return result;
   }
 };
-
 
