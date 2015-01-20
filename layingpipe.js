@@ -1,4 +1,5 @@
 module.exports = {
+
   first: function (arr, n) {
     if (n === undefined) {
       return arr[0];
@@ -6,17 +7,20 @@ module.exports = {
       return arr.slice(0,n);
     }
   },
+
   max: function (arr) {
     if (!arr || arr.length === 0) {
       return -Infinity;
     }
-
-    var maxVal = null;
-    for (var i = 0; i < arr.length; i++) {
-      if (maxVal === null || arr[i] > maxVal) { maxVal = arr[i]; }
-    }
-    return maxVal;
+    return arr.reduce(function (prev, curr) { 
+      if (curr > prev) {
+        return curr;
+      } else {
+        return prev;
+      }
+    },null);
   },
+
   min: function (arr) {
     if (!arr || arr.length === 0) {
       return -Infinity;
@@ -28,9 +32,10 @@ module.exports = {
     }
     return minVal;
   },
+
   intersection: function (firstArray, secondArray) {
     if (arguments.length < 2) { 
-      return [];
+      return []; 
     }
 
     var result = [];
@@ -62,6 +67,7 @@ module.exports = {
     }
     return result;
   },
+
   difference: function (firstArray, secondArray) {
     if (arguments.length !== 2) { 
       return [];
@@ -95,6 +101,7 @@ module.exports = {
     }
     return result;
   },
+
   uniq: function (array) {
     if (array == null) return [];
 
@@ -116,8 +123,10 @@ module.exports = {
     return result;
     
   },
+
   contains: function (array, target) {
     return (array.indexOf(target) !== -1) ? true : false;
   }
+
 };
 
