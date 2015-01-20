@@ -13,11 +13,7 @@ module.exports = {
       return -Infinity;
     }
     return arr.reduce(function (prev, curr) { 
-      if (curr > prev) {
-        return curr;
-      } else {
-        return prev;
-      }
+      return (curr > prev) ? curr : prev;
     },null);
   },
 
@@ -26,11 +22,9 @@ module.exports = {
       return -Infinity;
     }
 
-    var minVal = null;
-    for (var i = 0; i < arr.length; i++) {
-      if (minVal === null || arr[i] < minVal) { minVal = arr[i]; }
-    }
-    return minVal;
+    return arr.reduce( function (prev, curr) {
+      return (curr < prev) ? curr : prev;
+    },null);
   },
 
   intersection: function (firstArray, secondArray) {
