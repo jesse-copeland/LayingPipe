@@ -8,7 +8,7 @@ describe("Creates an array of values NOT present in all provided arrays using st
 
     var result = layingpipe.difference(testArray1, testArray2);
 
-    expect(result).toEqual([1,5]);
+    expect(result).toEqual([1]);
     
   });
   
