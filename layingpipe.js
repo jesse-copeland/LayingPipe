@@ -1,6 +1,7 @@
 module.exports = {
 
   first: function (arr, n) {
+    
     if (n === undefined) {
       return arr[0];
     }else{
